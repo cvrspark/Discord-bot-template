@@ -1,16 +1,33 @@
 {
   "compilerOptions": {
-    "resolveJsonModule": true,
     "target": "es2024",
     "module": "nodenext",
-    "rootDir": "src",
-    "strict": true,
+    "moduleResolution": "nodenext",
+    "rootDir": "./",
+    "outDir": "./dist",
+    
+    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["src/core/types", "node_modules/@types"],
-    "noFallthroughCasesInSwitch": true
+    "experimentalDecorators": true,
+    
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    
+    "typeRoots": [
+      "src/core/types", 
+      "node_modules/@types"
+    ],
+    "types": [
+      "node", 
+      "bun"
+    ]
   },
-  "include": ["src/**/*"]
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
