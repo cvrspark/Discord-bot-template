@@ -1,8 +1,3 @@
-//import { Balance } from "./functions/balance";
-//import { BalanceSchema } from "./schemas/balance.schema";
+import FuncClassName from "./functions/funcClass";
 
-export class Database {
-//remove etc
-}
-
-export {  };
+export { FuncClassName };

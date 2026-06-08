@@ -1,5 +1,5 @@
 import { Client, Collection, GatewayIntentBits } from 'discord.js';
-import { startDatabase } from './core/events/db/db';
+import { startDatabase } from './data/db.pool';
 import './core/types/client';
 import config from '../config.json';
 import handleInteractions from './core/handlers/handleInteractions'

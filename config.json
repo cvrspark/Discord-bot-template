@@ -1,8 +1,14 @@
 {
-    "token": "your-bot-token",
+    "token": "BotToken",
+    "guildId":"ServerId",
+    "clientId":"BotUserId",
     "private": true,
-    "clientId":"your-client-id",
-    "guildId":"your-guild-id",
-    "dbToken":"your-db-token",
-    "logs": false
+    "logs": true,
+    
+    "db": {
+        "host": "localhost",
+        "user": "db user",
+        "password": "db password",
+        "database": "db name"
+    }
 }

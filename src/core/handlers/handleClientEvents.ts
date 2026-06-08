@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default async function handleClientEvents(client: Client) {
-    const eventsPath = path.join(__dirname, '..', 'events', 'client');  
+    const eventsPath = path.join(__dirname, '..', 'events');  
     const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.ts') || file.endsWith('.js'));
 
     for (const file of eventFiles) {

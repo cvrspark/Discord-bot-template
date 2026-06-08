@@ -1,5 +1,5 @@
 {
-  "name": "ts-eco-reborn",
+  "name": "discord-bot-template",
   "version": "1.0.0",
   "main": "src/Bot.ts",
   "scripts": {
@@ -8,14 +8,15 @@
     "comp": "bun src/core/services/deploy.ts && bun src/Bot.ts",
     "deploytest": "bun src/core/services/deploytest.ts",
     "undeploytest": "bun src/core/services/deploy.ts"
-
   },
   "dependencies": {
     "discord-api-types": "^0.38.18",
     "discord.js": "^14.21.0",
+    "mysql2": "^3.22.5",
     "mongoose": "^8.17.1"
   },
   "devDependencies": {
+    "@types/bun": "^1.3.14",
     "ts-node": "^10.0.0",
     "typescript": "^5.0.0"
   }
