@@ -5,7 +5,8 @@
   "scripts": {
     "start": "bun src/Bot.ts",
     "deploy": "bun src/core/services/deploy.ts",
-    "comp": "bun src/core/services/deploy.ts && bun src/Bot.ts",
+    "deployemojis": "bun src/core/services/pushemojis.ts",
+    "comp": "bun src/core/services/deploy.ts && bun src/core/services/pushemojis.ts && bun src/Bot.ts",
     "deploytest": "bun src/core/services/deploytest.ts",
     "undeploytest": "bun src/core/services/deploy.ts"
   },
@@ -14,7 +15,6 @@
     "discord-api-types": "^0.38.18",
     "discord.js": "^14.21.0",
     "fs-extra": "^11.3.5",
-    "mongoose": "^8.17.1",
     "mysql2": "^3.22.5",
     "sharp": "^0.35.1"
   },
