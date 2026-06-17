@@ -1,6 +1,13 @@
-import { Interaction, Events } from 'discord.js';
+import { Interaction, ActionRow, MessageActionRowComponent, Events, ActionRowBuilder, ButtonBuilder, StringSelectMenuBuilder, UserSelectMenuBuilder, RoleSelectMenuBuilder, MentionableSelectMenuBuilder, ChannelSelectMenuBuilder, ComponentType, ButtonInteraction, AnySelectMenuInteraction, ModalSubmitInteraction } from 'discord.js';
+import { logs } from "../../../config.json";
+
 const cooldowns = new Map<string, Map<string, number>>();
-import { logs } from "../../../config.json"
+
+type DataInteraction = (ButtonInteraction | AnySelectMenuInteraction | ModalSubmitInteraction) & { data: string[] };
+
+function hasCustomData(interaction: Interaction): interaction is DataInteraction {
+    return interaction.isButton() || interaction.isAnySelectMenu() || interaction.isModalSubmit();
+}
 
 function handleCooldown(key: string, userId: string, cooldownTime: number): { blocked: boolean, timeString?: string } {
     if (cooldownTime === 0) return { blocked: false };
@@ -60,7 +67,8 @@ export default {
                 }
 
                 await command.execute(interaction);
-            } else if (interaction.isButton() || interaction.isAnySelectMenu() || interaction.isModalSubmit()) {
+            } 
+            else if (hasCustomData(interaction)) {
                 let handler = client.buttons.get(interaction.customId) ||
                               client.selectMenus.get(interaction.customId) ||
                               client.modals.get(interaction.customId);
@@ -110,7 +118,8 @@ export default {
                     return;
                 }
 
-                (interaction as any).data = data;
+                interaction.data = data;
+                
                 await handler.execute(interaction);
             }
         } catch (error) {

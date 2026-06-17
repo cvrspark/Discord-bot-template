@@ -10,10 +10,13 @@
     "undeploytest": "bun src/core/services/deploy.ts"
   },
   "dependencies": {
+    "@types/fs-extra": "^11.0.4",
     "discord-api-types": "^0.38.18",
     "discord.js": "^14.21.0",
+    "fs-extra": "^11.3.5",
+    "mongoose": "^8.17.1",
     "mysql2": "^3.22.5",
-    "mongoose": "^8.17.1"
+    "sharp": "^0.35.1"
   },
   "devDependencies": {
     "@types/bun": "^1.3.14",
