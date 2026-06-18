@@ -1,5 +1,6 @@
-import { Interaction, ActionRow, MessageActionRowComponent, Events, ActionRowBuilder, ButtonBuilder, StringSelectMenuBuilder, UserSelectMenuBuilder, RoleSelectMenuBuilder, MentionableSelectMenuBuilder, ChannelSelectMenuBuilder, ComponentType, ButtonInteraction, AnySelectMenuInteraction, ModalSubmitInteraction } from 'discord.js';
+import { Interaction, Events, ButtonInteraction, AnySelectMenuInteraction, ModalSubmitInteraction } from 'discord.js';
 import { logs } from "../../../config.json";
+import { componentTimeout } from '../services/timeout';
 
 const cooldowns = new Map<string, Map<string, number>>();
 
@@ -121,6 +122,10 @@ export default {
                 interaction.data = data;
                 
                 await handler.execute(interaction);
+
+                if ((interaction.isButton() || interaction.isAnySelectMenu()) && interaction.message) {
+                    componentTimeout(interaction.message);
+                }
             }
         } catch (error) {
             console.error('Error handling interaction:', error);

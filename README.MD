@@ -17,6 +17,8 @@ Before running the bot, edit the `config.json` file in the root directory to mat
     "clientId": "YOUR_CLIENT_ID",      // Your Bot's Application/Client ID
     "private": true,                   // Set to true for guild-specific commands, false for global
     "logs": true,                      // Enable/Disable command execution logs in the console
+    "disabletime": 2,                  // Disable components timeout in minutes (0 to disable)
+    
     "db": {
         "host": "localhost",           // Database host address (or MongoDB URI)
         "user": "db_user",             // Database username

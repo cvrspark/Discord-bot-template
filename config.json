@@ -4,7 +4,8 @@
     "clientId":"BotUserId",
     "private": true,
     "logs": true,
-    
+    "disabletime": 0,
+
     "db": {
         "host": "localhost",
         "user": "db user",
