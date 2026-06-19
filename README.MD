@@ -112,13 +112,13 @@ You can store dynamic data (like User IDs) directly inside Discord Component Cus
 ```typescript
 export default {
     data: {
-        // The "*" will act as a wildcard catcher
-        // Example trigger: .setCustomId(`confirmBan-${user.id}`)
-        customId: "confirmBan-*" 
+        // The ":*" acts as a dynamic argument catcher (example: setCustomId(`confirmBan:${user.id}`) )
+        // Enforces colons as separators
+        customId: "confirmBan:*" 
     },
-    async execute(interaction: InteractionType) {
-        // Retrieves the dynamic portion that replaced the "*"
-        const targetUserId = (interaction as any).data[0]; 
+    async execute(interaction: ButtonInteraction) {
+        // Retrieves the dynamic portion that replaced the ":*"
+        const targetUserId = interaction.data[0]; 
         
         console.log(`Action triggered for User: ${targetUserId}`);
     }
@@ -163,4 +163,3 @@ export default {
 └── Bot.ts                            # Client initialization & entry point
 
 ```
-

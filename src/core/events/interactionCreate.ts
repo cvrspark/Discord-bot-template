@@ -93,7 +93,7 @@ export default {
                     ];
 
                     for (const [pattern, component] of patterns) {
-                        const regexPattern = pattern.replace(/\*/g, '([^/]+)');
+                        const regexPattern = pattern.replace(/:\*/g, '([^:]+)');
                         const regex = new RegExp(`^${regexPattern}$`);
                         const match = interaction.customId.match(regex);
 
