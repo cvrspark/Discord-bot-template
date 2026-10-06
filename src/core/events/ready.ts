@@ -22,6 +22,6 @@ export default {
     execute(client: any) {
         console.clear();
         console.log(`${colors.white}${colors.bright}Started ${colors.cyan}${client.user.tag}${colors.reset}`);
-        console.log(`${colors.white}${colors.bright}Bot made by ${colors.magenta}cvrspark (@swaglimit)${colors.reset}`);
+        console.log(`${colors.white}${colors.bright}Bot made by ${colors.magenta}cvrspark (@swagoverdosed)${colors.reset}`);
     },
 };
